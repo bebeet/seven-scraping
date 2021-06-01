@@ -42,14 +42,8 @@ print("Total api calls:", len(tambon_lat_long_df))
 for index, row in tambon_lat_long_df[16:].iterrows():
     print(index, row['TA_ID'], row['TAMBON_T'], row['LAT'], row["LONG"])
 
-    json_data = get_seven_store_by_keyword(row['TAMBON_T'].replace(" ",""))
-    filename = f"{RESULT_DIRECTORY}/by_province_name/samutsakhon_{index}_{int(row['TA_ID'])}.json"
-    with open(filename, 'w') as outfile: json.dump(json_data, outfile, ensure_ascii=False)
-    sleep_time = random.randint(30, 90)
-    time.sleep(sleep_time)
-
     json_data = get_seven_store(row['LAT'], row['LONG'])
-    filename = f"{RESULT_DIRECTORY}/by_latlng/samutsakhon_{index}_{int(row['TA_ID'])}.json"
+    filename = f"{RESULT_DIRECTORY}/by_latlng/{index}_{int(row['TA_ID'])}.json"
     with open(filename, 'w') as outfile: json.dump(json_data, outfile, ensure_ascii=False)
     sleep_time = random.randint(30, 90)
     time.sleep(sleep_time)
