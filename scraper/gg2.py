@@ -1,7 +1,6 @@
 import requests, json, random, time
 import pandas as pd
 
-api_key="AIzaSyDQxCKOSaHSfhKv4t6cgzDQk4dW9DFDHqA" 
 
 
 def gg_place_api(lat, long):
